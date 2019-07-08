@@ -11,15 +11,24 @@ Herramientas relacionadas utilizadas:
 Instalacion:
     
 Clonar el repositorio: git clone https://github.com/riveroreyes/mensajeria_python_celery_rabbit_postgress.git
+
 Construir los contenedores: docker-compose build
+
 Levantar los contenedores: docker-compose up
+
 Abrir una nueva consola y migrar la base de datos: docker-compose run --rm python python  manage.py migrate
+
 Crear un super usuario: docker-compose run --rm python python  manage.py createsuperuser
+
 Probar la aplicacion: http://127.0.0.1:8000/, ATENCION: Posiblemente requiera modificar algun archivo del projecto (modifica tasks.py) para que docker active el servidor
+
 Ingresar a administracion: http://127.0.0.1:8000/admin, colocar los datos del usuario recien creado.
+
 Ir a usuarios: http://127.0.0.1:8000/admin/auth/user/
 
+
 Crear un numero determinado de usuarios: Ejemplo: 500
+
 docker-compose run --rm python python  manage.py shell_plus
         
     carlos@carlos:~/Documents/mensajeria_python_celery_rabbit_postgress/app/aplicaciones/tareas(master)$ docker-compose run --rm python python  manage.py shell_plus
@@ -47,14 +56,22 @@ docker-compose run --rm python python  manage.py shell_plus
     (InteractiveConsole)
     
     >>> from aplicaciones.tareas.views import create_user_random
-    >>> create_user_random(30)
-    'Fueron 30 usuarios creados correctamente'
+    >>> create_user_random(500)
+    'Fueron 500 usuarios creados correctamente'
 
 Enviar los correos asincronicamente con celery:
+
 Ir a http://127.0.0.1:8000/admin/auth/user/
+
 En Actions: Seleccionar la opcion: Send email actions
+
 Marcar todos los usuarios de esa pagina y presionar Go o Ir
-Observar la consola de docker para ver el envio
+
+Observar la consola de docker para ver el envio, La salida esta direccionada a la consola segun la configuracion en settings:
+
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+    Respuesta:
 
     celery_worker_1_726e3127c15b | From: 785c549069e596
     celery_worker_1_726e3127c15b | To: usuario_qPdUs@msa.com.ve
