@@ -1,0 +1,11 @@
+amqp==2.5.0
+billiard==3.6.0.0
+celery==4.3.0
+Django==2.2.3
+django-extensions==2.1.9
+kombu==4.6.3
+pytz==2019.1
+six==1.12.0
+sqlparse==0.3.0
+vine==1.3.0
+psycopg2==2.8.3
