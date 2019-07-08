@@ -1,4 +1,4 @@
-# Cola Asincronica de Envio Masivo de Correos
+# Cola Asincronica de Envio Masivo de Correos. Realizado en Python-Django
 Desarrollo en Python-DJango para el envio de correos asincronico a N cantidad de usuarios.
 
 Herramientas relacionadas utilizadas:
